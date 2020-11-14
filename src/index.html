@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rick and Morty's characters guide</title>
-    <script src="index.js"></script>
 </head>
 <body>
     <header>
@@ -12,13 +11,18 @@
     </header>
     <section>
         <div class="main">
-            <div class="collection">
-                <div class="collection__card">
-                    <img id="charImage" src="" alt="Character image">
-                    <p id="charName"></p>
-                </div>
+            <div class="buttons">
+                <button class="button btnBack">Anterior</button>
+                <button class="button btnNext">Siguiente</button>
+            </div>
+            <div id="collection" class="collection">
+            </div>
+            <div class="buttons">
+                <button class="button btnBack">Anterior</button>
+                <button class="button btnNext">Siguiente</button>
             </div>
         </div>
     </section>
 </body>
+<script src="index.js"></script>
 </html>
