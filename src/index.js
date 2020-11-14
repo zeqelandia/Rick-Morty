@@ -11,8 +11,8 @@ async function fetchData(url) {
 const setCards = () => {
     const card = `
         <div class="collection__card">
-            <img id="charImage" src="" alt="Character image">
-            <p id="charName"></p>
+            <img id="charImage" src="" alt="Character image" class="collection__card--image">
+            <p id="charName" class="collection__card--text"></p>
         </div>
     `
 
@@ -61,12 +61,12 @@ const setInputs = () => {
 }
 
 // Goes to the next or previous page and loads the correct characters from the api
-const movePage = dir => {
+const movePage = async dir => {
     let arr = api.split('=')
     arr[1] = parseInt(arr[1]) + dir
     api = arr[0] + '=' + arr[1]
-    
-    fetchData(api)
+
+    await fetchData(api)
         .then(data => {
             fillCards(data)
         })
@@ -80,3 +80,4 @@ window.onload = fetchData(api)
     .then(data => {
         fillCards(data)
     })
+
