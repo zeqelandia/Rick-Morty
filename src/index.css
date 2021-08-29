@@ -29,16 +29,24 @@ body {
 }
 
 .collection__card {
+  border: 1px solid #dddddd;
+  border-radius: 7px;
+  -webkit-box-shadow: 10px 10px 10px #dadada;
+          box-shadow: 10px 10px 10px #dadada;
+  margin: 10px;
   padding: 10px;
   text-align: center;
 }
 
 .collection__card--image {
+  border: 1px solid #a4a3a3;
+  border-radius: 30px;
   width: 100%;
 }
 
 .collection__card--text {
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
   font-weight: bolder;
 }
 /*# sourceMappingURL=index.css.map */
