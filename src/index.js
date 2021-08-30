@@ -1,3 +1,6 @@
+// Gray bg image
+const gray = '../img/gray.png'
+
 // Rick and Morty' characters API reference
 let api = 'https://rickandmortyapi.com/api/character/?page=1'
 
@@ -27,7 +30,7 @@ const setCards = () => {
 }
 
 // Fills the 20 cards with the characters' image and name returned from the api
-const fillCards = (data) => {
+const fillCards = (data, state) => {
     const collection = document.getElementById('collection')
     const cards = collection.children
     let count = 0
@@ -36,8 +39,13 @@ const fillCards = (data) => {
         let img = card.children[0]
         let p = card.children[1]
 
-        img.src = data.results[count].image
-        p.innerHTML = data.results[count].name
+        if(state === 'loading'){
+            img.src = gray
+            p.innerHTML = 'Loading'
+        }else{
+            img.src = data.results[count].image
+            p.innerHTML = data.results[count].name
+        }
         count++
     }
 }
@@ -66,9 +74,10 @@ const movePage = async dir => {
     arr[1] = parseInt(arr[1]) + dir
     api = arr[0] + '=' + arr[1]
 
+    fillCards(arr, 'loading')
     await fetchData(api)
         .then(data => {
-            fillCards(data)
+            fillCards(data, 'completed')
         })
 }
 
